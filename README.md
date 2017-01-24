@@ -4,7 +4,7 @@
 
 ### Overview
 
-Stochastic Fair Blue (SFB) is extenstion of BLUE Active Queue Management (AQM) [1] mechanism, and has been implemented in ns-2 [2]. Linux Kernel Code [3] is also available. This repository contains an implementation of SFB in ns-3 [4].
+Stochastic Fair Blue (SFB) is extenstion of BLUE Active Queue Management (AQM) [1] mechanism, and has been implemented in ns-2 [2]. Linux Kernel Code [3] for SFB is also available. This repository contains an implementation of SFB in ns-3 [4].
 
 ### References
 
