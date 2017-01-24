@@ -12,6 +12,6 @@ Stochastic Fair Blue (SFB) is extenstion of BLUE Active Queue Management (AQM) [
 
 [2] http://public.lanl.gov/sunil/ns/ns-blue.tar.gz
 
-[3] http://lxr.free-electrons.com/source/net/sched/sch\_sfb.c
+[3] http://lxr.free-electrons.com/source/net/sched/sch_sfb.c
 
 [4] http://www.nsnam.org/
