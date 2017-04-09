@@ -26,6 +26,7 @@
 #include "ns3/simulator.h"
 #include "ns3/abort.h"
 #include "sfb-queue-disc.h"
+#include "ns3/ipv4-packet-filter.h"
 #include "ns3/drop-tail-queue.h"
 
 namespace ns3 {
@@ -162,6 +163,7 @@ SFBQueueDisc::InitializeBins (void)
       for (uint32_t j = 0; j < SFB_BINS; j++)
         {
           m_bins[i][j].packets = 0;
+          m_bins[i][j].pmark = 0;
         }
     }
 }
@@ -344,9 +346,15 @@ SFBQueueDisc::CheckConfig (void)
       return false;
     }
 
-  if (GetNPacketFilters () > 0)
+  if (GetNPacketFilters () == 0)
     {
-      NS_LOG_ERROR ("SFBQueueDisc cannot have packet filters");
+      Ptr<SFBIpv4PacketFilter> ipv4Filter = CreateObject<SFBIpv4PacketFilter> ();
+      AddPacketFilter (ipv4Filter);
+    }
+
+  if (GetNPacketFilters () != 1)
+    {
+      NS_LOG_ERROR ("SFBQueueDisc needs 1 filter");
       return false;
     }
 
