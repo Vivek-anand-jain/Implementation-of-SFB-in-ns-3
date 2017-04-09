@@ -76,6 +76,30 @@ private:
   uint32_t m_perturbation; //!< hash perturbation value
 };
 
+/**
+ * \ingroup internet
+ *
+ * SFBIpv4PacketFilter is the filter to be added to the SFB
+ * queue disc to simulate the behavior of the SFB Linux queue disc.
+ *
+ */
+class SFBIpv4PacketFilter : public Ipv4PacketFilter {
+public:
+  /**
+   * \brief Get the type ID.
+   * \return the object TypeId
+   */
+  static TypeId GetTypeId (void);
+
+  SFBIpv4PacketFilter ();
+  virtual ~SFBIpv4PacketFilter ();
+
+private:
+  virtual int32_t DoClassify (Ptr<QueueDiscItem> item) const;
+
+  uint32_t m_perturbation; //!< hash perturbation value
+};
+
 } // namespace ns3
 
 #endif /* IPV4_PACKET_FILTER */
